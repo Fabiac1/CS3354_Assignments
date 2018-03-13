@@ -95,15 +95,15 @@ public class RandomMatrix {
         ReadFromFile getValues = new ReadFromFile();
         int result[] = getValues.getDimensionsFromFile();
         int row = result[1], col = result[0];
-        int matrixA[][] = new int[row][col];
-        int matrixB[][] = new int[row][col];
+        int matrixX[][] = new int[row][col];
+        int matrixY[][] = new int[row][col];
         Random random = new Random();
         // load the matrices
         for(int i = 0; i < row; i++){
             System.out.print("|\t"); //
             for(int j = 0; j < col; j++){
-                matrixA[i][j] = random.nextInt(maxN - minN) + minN;
-                System.out.print(matrixA[i][j]); //
+                matrixX[i][j] = random.nextInt(maxN - minN) + minN;
+                System.out.print(matrixX[i][j]); //
                 if (j+1 != col)
                     System.out.print("\t");
                 else
@@ -111,8 +111,8 @@ public class RandomMatrix {
             } // end for j
             System.out.print("\t|\t"); //
             for(int k = 0; k < col; k++){
-                matrixB[i][k] = random.nextInt(maxN - minN) + minN;
-                System.out.print(matrixB[i][k]); //
+                matrixY[i][k] = random.nextInt(maxN - minN) + minN;
+                System.out.print(matrixY[i][k]); //
                 if (k+1 != col)
                     System.out.print("\t");
                 else
@@ -126,7 +126,7 @@ public class RandomMatrix {
         System.out.println("Sum the matrices");
         for(int i = 0; i < row; i++){
             for(int j = 0; j < col; j++){
-                int sumA = matrixA[i][j] + matrixB[i][j];
+                int sumA = matrixX[i][j] + matrixY[i][j];
                 System.out.print(sumA+ "\t"); //
             }
             System.out.println();
@@ -138,8 +138,8 @@ public class RandomMatrix {
             for(int j = 0; j < col; j++){
                 int sumA = 0;
                 for(int k = 0; k < row; k++){
-                    //System.out.print(matrixA[i][j] + " : " + matrixB[k][j] + " R=");
-                    int product = matrixA[i][j] * matrixB[k][j];
+                    //System.out.print(matrixX[i][j] + " : " + matrixY[k][j] + " R=");
+                    int product = matrixX[i][j] * matrixY[k][j];
                     //System.out.print(product + "\t");
                     sumA += product;
                 } // end for k               
