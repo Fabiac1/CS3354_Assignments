@@ -45,7 +45,7 @@ class ReadFromFile{
             // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             
-            //
+            // read from the file
             int counter = 0;
             while((line = bufferedReader.readLine()) != null) {
                 //System.out.println(line);
