@@ -97,6 +97,7 @@ public class RandomMatrix {
         int row = result[1], col = result[0];
         int matrixX[][] = new int[row][col];
         int matrixY[][] = new int[row][col];
+        int matrixZ[][] = new int[col][row];
         Random random = new Random();
         // load the matrices
         for(int i = 0; i < row; i++){
@@ -127,27 +128,37 @@ public class RandomMatrix {
         for(int i = 0; i < row; i++){
             for(int j = 0; j < col; j++){
                 int sumA = matrixX[i][j] + matrixY[i][j];
-                System.out.print(sumA+ "\t"); //
+                System.out.print(sumA + "\t"); //
             }
             System.out.println();
         }
         
-        // multiply the matrices
+        // load the matix for multiplication
+        for(int i = 0; i < col; i++){
+            //System.out.print(matrixY[i][0]);
+            for(int j = 0; j < row; j++){
+                matrixZ[i][j] = matrixY[j][i];
+                //System.out.print(matrixZ[i][j] + "\t");
+            }
+            //System.out.println();
+        }
+        
         System.out.println("Multiply the matrices");
+        // loop to get multiply the matrices
         for(int i = 0; i < row; i++){
-            for(int j = 0; j < col; j++){
+            for(int k = 0; k < row; k++){
                 int sumA = 0;
-                for(int k = 0; k < row; k++){
-                    //System.out.print(matrixX[i][j] + " : " + matrixY[k][j] + " R=");
-                    int product = matrixX[i][j] * matrixY[k][j];
-                    //System.out.print(product + "\t");
+                int r = 0;
+                for(int c = 0; c < col; c++){
+                    int product = matrixX[i][r] * matrixZ[c][k];                    
                     sumA += product;
-                } // end for k               
+                    r++;
+                } // end for c
                 System.out.print(sumA+ "\t"); //
-            } // end for j
+            } // end for k
             System.out.println();
         } // end for i
         
-    }
+    } // end main
     
-}
+} // end RandomMatrix
